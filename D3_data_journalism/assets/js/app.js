@@ -267,7 +267,7 @@ d3.csv("assets/data/data.csv").then(function(healthData, err) {
         var circlesGroup = circlesGroupAll
             .append("circle")
             .attr("cx", d => xLinearScale(d[chosenXAxis]))
-            .attr("cy", d => yLinearScale(d.num_hits))
+            .attr("cy", d => yLinearScale(d.healthcareLow))
             .attr("r", 20)
             .attr("fill", "teal")
             .attr("opacity", ".5");
@@ -281,7 +281,7 @@ d3.csv("assets/data/data.csv").then(function(healthData, err) {
             .append("text")
             .text((d) => Math.round(xLinearScale(d[chosenXAxis])))
             .attr("x", d => xLinearScale(d[chosenXAxis]))
-            .attr("y", d => yLinearScale(d.num_hits));
+            .attr("y", d => yLinearScale(d.healthcareLow));
 
 
 // #################### 9.  chartGroup Append labelsGroup Object  ###############//
