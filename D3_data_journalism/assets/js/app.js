@@ -1,8 +1,6 @@
-// I worked with Erin Wills (TA) and the following people:  _Carol_and Chioma
-// I was 75% finished. With this help I was able to scale my y_axis, fix labels and tooltips.
-
-
-
+// I worked with Erin Wills (TA) and the following people:   Carol and Chioma
+// I was 75% finished with my D3 plot before our team tackling of this project. 
+// With this team help I was able to scale my y_axis, fix labels and fix tooltips.
 
 
 
@@ -63,9 +61,9 @@ function xScale(healthData, chosenXAxis) {
     if (chosenXAxis === "poverty") {
       label = "In Poverty (%):";
     }
-    else {
-      label = "Obesity(%)";
-    }
+    // else {
+    //   label = "Obesity(%)";
+    // }
   
     var toolTip = d3.tip()
       .attr("class", "d3-tip")
@@ -83,7 +81,7 @@ function xScale(healthData, chosenXAxis) {
     // added 'this
     // https://github.com/Caged/d3-tip/issues/231#issuecomment-459758872    
     circlesGroup.on("mouseover", function(data, index, element) {
-      toolTip.show(data, index, element);
+      toolTip.show(data, index, element); //<--- removed 'this'
     })
       // onmouseout event
       .on("mouseout", function(data, index) {
@@ -249,7 +247,7 @@ d3.csv("assets/data/data.csv").then(function(healthData, err) {
             .attr("x", 0)
             .attr("y", 20)
             .attr("value", "poverty") // value to grab for event listener
-            .classed("active", true)
+            .classed("active", false)
             .text("In Poverty (%)");
 
 
